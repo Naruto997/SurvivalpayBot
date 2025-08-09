@@ -1,0 +1,11 @@
+{
+  "users": {},
+  "profiles": {},
+  "wallets": {},
+  "earnings": [],
+  "transactions": [],
+  "withdraw_requests": [],
+  "admin": {
+    "admin_id": null
+  }
+}

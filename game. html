@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GameZone WebApp</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #121212; color: #fff; }
+    button { padding: 10px 20px; font-size: 18px; margin-top: 20px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<h1>🎮 Welcome to GameZone!</h1>
+<p>This is your game web app interface.</p>
+
+<button id="playBtn">Start Game</button>
+
+<p id="result"></p>
+
+<script>
+  const tg = window.Telegram.WebApp;
+  tg.expand();
+
+  document.getElementById('playBtn').addEventListener('click', () => {
+    const goldEarned = Math.floor(Math.random() * 100);
+    const diamondsEarned = Math.floor(Math.random() * 10);
+
+    document.getElementById('result').textContent = 
+      `You earned ${goldEarned} Gold and ${diamondsEarned} Diamonds! 🎉`;
+
+    // Optional: Send result back to bot later
+  });
+</script>
+
+</body>
+</html>

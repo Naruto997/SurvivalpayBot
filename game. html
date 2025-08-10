@@ -1,37 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GameZone WebApp</title>
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; background: #121212; color: #fff; }
-    button { padding: 10px 20px; font-size: 18px; margin-top: 20px; cursor: pointer; }
-  </style>
+  <meta charset="UTF-8">
+  <title>Game Page</title>
 </head>
 <body>
+  <h2>🚀 Welcome to the Game!</h2>
+  <button onclick="sendResult()">🏆 Finish Game</button>
 
-<h1>🎮 Welcome to GameZone!</h1>
-<p>This is your game web app interface.</p>
+  <script>
+    function sendResult() {
+      const result = {
+        gold: Math.floor(Math.random() * 20 + 5),
+        diamonds: Math.floor(Math.random() * 5),
+        mode: "rage",
+        kills: Math.floor(Math.random() * 10),
+        hits: Math.floor(Math.random() * 20),
+        result: "win"
+      };
 
-<button id="playBtn">Start Game</button>
+      Telegram.WebApp.sendData(JSON.stringify(result));
+      Telegram.WebApp.close();
+    }
+  </script>
 
-<p id="result"></p>
-
-<script>
-  const tg = window.Telegram.WebApp;
-  tg.expand();
-
-  document.getElementById('playBtn').addEventListener('click', () => {
-    const goldEarned = Math.floor(Math.random() * 100);
-    const diamondsEarned = Math.floor(Math.random() * 10);
-
-    document.getElementById('result').textContent = 
-      `You earned ${goldEarned} Gold and ${diamondsEarned} Diamonds! 🎉`;
-
-    // Optional: Send result back to bot later
-  });
-</script>
-
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </body>
 </html>
